@@ -1,32 +1,27 @@
-<h1>Showing task</h1>
-<p id="notice"><%= notice %></p>
+<h1 class="main">Showing task</h1>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td><%= @task.title %></td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td><%= @task.description %></td>
+    </tr>
+    <tr>
+      <td><strong>Completed</strong></td>
+      <td><%= @task.completed %></td>
+    </tr>
+    <tr>
+      <td><strong>Deadline</strong></td>
+      <td><%= @task.deadline %></td>
+    </tr>
+    <tr>
+      <td><strong>User</strong></td>
+      <td><%= @task.user.name %></td
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @task.user.name %>
-</p>
-
-<div class="col-lg-12">
-  <%= link_to 'Edit', edit_task_path(@task) %> |
-  <%= link_to 'Back', tasks_path %>
-</div>
+<%= link_to 'Edit Task', edit_task_path(@task) %>
