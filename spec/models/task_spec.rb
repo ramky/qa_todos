@@ -10,7 +10,7 @@ RSpec.describe Task, type: :model do
     let(:user) { Fabricate(:user) }
 
     it "should return a friendly date for time in the past" do
-      task = Fabricate(:task, user_id: user.id)
+      task = Fabricate(:task, deadline: Time.zone.now - 1.day, user_id: user.id)
       expect(task.my_deadline).to eq("1 day ago")
     end
 

@@ -2,7 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.uncompleted
+    @completed = Task.completed
   end
 
   def show
@@ -27,12 +28,23 @@ class TasksController < ApplicationController
   end
 
   def update
-      if @task.update(task_params)
-        redirect_to @task, notice: 'Task was successfully updated.'
-      else
-        show_flash_error(@task)
-        render :edit
-      end
+    if @task.update(task_params)
+      redirect_to @task, notice: 'Task was successfully updated.'
+    else
+      show_flash_error(@task)
+      render :edit
+    end
+  end
+
+  def update_completed
+    set_task
+    @task.completed? ? @task.completed = false : @task.completed = true
+    if @task.save
+      redirect_to root_path, notice: 'Task status was successfully updated.'
+    else
+      show_flash_error(@task)
+      render :new
+    end
   end
 
   def destroy

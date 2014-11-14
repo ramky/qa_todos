@@ -16,6 +16,18 @@
         <td><%= task.title %></td>
         <td><%= task.completed %></td>
         <td><%= task.my_deadline %></td>
+        <td><%= link_to 'Mark Complete', update_completed_task_path(task), method: :patch %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% @completed.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.completed %></td>
+        <td><%= task.my_deadline %></td>
+        <td><%= link_to 'Mark Uncomplete', update_completed_task_path(task), method: :patch %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
