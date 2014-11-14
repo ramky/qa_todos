@@ -19,6 +19,9 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'hirb'
+  gem 'capybara'
+  gem 'vcr'
+  gem 'database_cleaner'
 end
 
 
