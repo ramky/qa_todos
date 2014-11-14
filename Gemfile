@@ -22,6 +22,8 @@ group :test, :development do
   gem 'capybara'
   gem 'vcr'
   gem 'database_cleaner'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 
