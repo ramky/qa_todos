@@ -13,6 +13,8 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem "bootstrap_form"
+gem "bcrypt"
+gem "haml"
 
 group :test, :development do
   gem 'rspec-rails'

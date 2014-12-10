@@ -1,0 +1,15 @@
+%header.center
+  %h1.header Sign In
+= form_tag sessions_path, class: 'form-horizontal' do
+  .form-group.col-lg-12
+    = label_tag :email, nil, class: 'col-lg-3'
+    = email_field_tag :email, nil, class: 'col-lg-5'
+  .form-group.col-lg-12
+    = label_tag :password, nil, class: 'col-lg-3'
+    = password_field_tag :password, nil, class: 'col-lg-5'
+  .form-group.action.center
+    = submit_tag 'Sign In', class: 'btn btn-primary'
+.center
+  = link_to 'Register', register_path, class: 'special_links'
+  |
+  = link_to 'Forgot Password', '#', class: 'special_links'
