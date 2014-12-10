@@ -24,9 +24,9 @@
     <% end %>
     <% @completed.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
-        <td><%= task.completed %></td>
-        <td><%= task.my_deadline %></td>
+        <td class="completed"><%= task.title %></td>
+        <td class="completed"><%= task.completed %></td>
+        <td class="completed"><%= task.my_deadline %></td>
         <td><%= link_to 'Mark Uncomplete', update_completed_task_path(task), method: :patch %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>

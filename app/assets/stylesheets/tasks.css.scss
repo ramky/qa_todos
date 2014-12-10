@@ -6,6 +6,11 @@ h1.main{
   margin-bottom: 25px;
 }
 
+.completed{
+  color: green;
+  text-decoration: line-through;
+}
+
 /*.field_with_errors {       */
 /*    @extend .control-group;*/
 /*    @extend .error;        */
