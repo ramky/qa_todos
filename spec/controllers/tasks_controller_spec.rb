@@ -24,8 +24,8 @@ RSpec.describe TasksController, type: :controller do
   end
 
   describe 'PATCH #task_completed' do
-      let(:user) { Fabricate(:user) }
-      let(:task) { Fabricate(:task, user_id: user.id) }
+    let(:user) { Fabricate(:user) }
+    let(:task) { Fabricate(:task, user_id: user.id) }
     before do
       set_current_user(user)
     end
