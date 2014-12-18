@@ -4,12 +4,14 @@ RSpec.describe TasksController, type: :controller do
   describe 'GET #index' do
 
     it "renders the :index view" do
+      set_current_user()
       get :index
       expect(response).to render_template :index
     end
 
     it "returns a list of all the uncompleted tasks ordered by deadline" do
       user = Fabricate(:user)
+      set_current_user(user)
       tasks = []
       tasks << Fabricate(:task, completed: true, deadline: Time.zone.now - 1.day, user_id: user.id)
       tasks << Fabricate(:task, deadline: Time.zone.now - 2.day, user_id: user.id)
@@ -22,8 +24,11 @@ RSpec.describe TasksController, type: :controller do
   end
 
   describe 'PATCH #task_completed' do
-    let(:user) { Fabricate(:user) }
-    let(:task) { Fabricate(:task, user_id: user.id) }
+      let(:user) { Fabricate(:user) }
+      let(:task) { Fabricate(:task, user_id: user.id) }
+    before do
+      set_current_user(user)
+    end
     it "should toggle the completed boolean field for any task" do
       patch :update_completed, id: task.id
       task.reload
