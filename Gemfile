@@ -26,6 +26,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
+  gem 'capybara-webkit'
 end
 
 
